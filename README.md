@@ -47,16 +47,6 @@ Use `fzf.fish` to interactively find and insert file paths, git commit hashes, a
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>R</kbd> (`R` for reverse-i-search)
 - **Preview window:** the entire command with Fish syntax highlighting
 
-### 💲 Search Variables
-
-![Search Variables example](../assets/variables.png)
-
-- **Fzf input:** all the shell variables currently [in scope][var scope]
-- **Output:** selected shell variables
-- **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>V</kbd> (`V` for variable)
-- **Preview window:** the variable's scope info and values
-- `$history` is excluded for technical reasons so use [Search History](#-search-history) instead to inspect it
-
 ## Installation
 
 First, install a proper version of these CLI dependencies:
@@ -107,7 +97,6 @@ Each command's fzf options can be configured via a variable:
 | Search Directory | `fzf_directory_opts` |
 | Search Git Log   | `fzf_git_log_opts`   |
 | Search History   | `fzf_history_opts`   |
-| Search Variables | `fzf_variables_opts` |
 
 The value of each variable is appended last to fzf's options list. Because fzf uses the last instance of an option if it is specified multiple times, custom options take precedence. Custom fzf options unlock a variety of augmentations:
 
