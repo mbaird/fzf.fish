@@ -32,12 +32,6 @@ fzf_configure_bindings --help
 
 Call `fzf_configure_bindings` in your `config.fish` in order to persist your custom bindings.
 
-### Change fzf options for all commands
-
-fzf supports global default options via the [FZF_DEFAULT_OPTS](https://github.com/junegunn/fzf#environment-variables) environment variable.
-
-`fzf.fish` sets [a sane `FZF_DEFAULT_OPTS` whenever it executes fzf](functions/_fzf_wrapper.fish). If you export your own `FZF_DEFAULT_OPTS`, then yours will be used instead.
-
 ### Change fzf options for a specific command
 
 Each command's fzf options can be configured via a variable:
