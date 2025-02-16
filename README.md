@@ -38,15 +38,6 @@ Use `fzf.fish` to interactively find and insert file paths, git commit hashes, a
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>L</kbd> (`L` for log)
 - **Preview window:** commit message and diff
 
-### 📝 Search Git Status
-
-![Search Git Status example](../assets/git_status.png)
-
-- **Fzf input:** the current repository's `git status`
-- **Output:** relative paths of selected lines
-- **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>S</kbd> (`S` for status)
-- **Preview window:** the git diff of the file
-
 ### 📜 Search History
 
 ![Search History example](../assets/history.png)
@@ -120,14 +111,13 @@ fzf supports global default options via the [FZF_DEFAULT_OPTS](https://github.co
 
 Each command's fzf options can be configured via a variable:
 
-| Command           | Variable              |
-| ----------------- | --------------------- |
-| Search Directory  | `fzf_directory_opts`  |
-| Search Git Log    | `fzf_git_log_opts`    |
-| Search Git Status | `fzf_git_status_opts` |
-| Search History    | `fzf_history_opts`    |
-| Search Processes  | `fzf_processes_opts`  |
-| Search Variables  | `fzf_variables_opts`  |
+| Command          | Variable             |
+| ---------------- | -------------------- |
+| Search Directory | `fzf_directory_opts` |
+| Search Git Log   | `fzf_git_log_opts`   |
+| Search History   | `fzf_history_opts`   |
+| Search Processes | `fzf_processes_opts` |
+| Search Variables | `fzf_variables_opts` |
 
 The value of each variable is appended last to fzf's options list. Because fzf uses the last instance of an option if it is specified multiple times, custom options take precedence. Custom fzf options unlock a variety of augmentations:
 
@@ -178,7 +168,7 @@ The format must be one line per commit and the hash must be the first field, or 
 
 ### Integrate with a diff highlighter
 
-To pipe the git diff previews from [Search Git Log][] and [Search Git Status][] through a highlighter tool (e.g. [delta](https://github.com/dandavison/delta) or [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)), set a command invoking the highlighter in `fzf_diff_highlighter`. It should not pipe its output to a pager:
+To pipe the git diff previews from [Search Git Log][] through a highlighter tool (e.g. [delta](https://github.com/dandavison/delta) or [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)), set a command invoking the highlighter in `fzf_diff_highlighter`. It should not pipe its output to a pager:
 
 ```fish
 # width=20 so delta decorations don't wrap around small fzf preview pane
@@ -217,6 +207,5 @@ Find answers to these questions and more in the [project Wiki](https://github.co
 [latest release badge]: https://img.shields.io/github/v/release/patrickf1/fzf.fish
 [search directory]: #-search-directory
 [search git log]: #-search-git-log
-[search git status]: #-search-git-status
 [search history]: #-search-history
 [var scope]: https://fishshell.com/docs/current/#variable-scope
