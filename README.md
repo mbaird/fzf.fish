@@ -14,7 +14,7 @@ https://user-images.githubusercontent.com/1967248/197308919-51d04602-2d5f-46aa-a
 
 ## Search commands
 
-Use `fzf.fish` to interactively find and insert file paths, git commit hashes, and other entities into your command line. <kbd>Tab</kbd> to select multiple entries. If you trigger a search while your cursor is on a word, that word will be used to seed the fzf query and will be replaced by your selection. All searches include a preview of the entity hovered over to help you find what you're looking for.
+Use `fzf.fish` to interactively find and insert file paths, git commit hashes, and other entities into your command line. <kbd>Tab</kbd> to select multiple entries. If you trigger a search while your cursor is on a word, that word will be used to seed the fzf query and will be replaced by your selection.
 
 ### 📁 Search Directory
 
@@ -23,7 +23,6 @@ Use `fzf.fish` to interactively find and insert file paths, git commit hashes, a
 - **Fzf input:** recursive listing of current directory's non-hidden files
 - **Output:** relative paths of selected files
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>F</kbd> (`F` for file)
-- **Preview window:** file with syntax highlighting, directory contents, or file type
 - **Remarks**
   - directories are inserted with a trailing `/`, so if you select exactly one directory, you can immediately hit <kbd>ENTER</kbd> to [cd into it][cd docs]
   - if the current token is a directory with a trailing slash (e.g. `.config/<CURSOR>`), then that directory is searched instead
@@ -36,7 +35,6 @@ Use `fzf.fish` to interactively find and insert file paths, git commit hashes, a
 - **Fzf input:** the current repository's formatted `git log`
 - **Output:** hashes of selected commits
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>L</kbd> (`L` for log)
-- **Preview window:** commit message and diff
 
 ### 📜 Search History
 
@@ -45,7 +43,6 @@ Use `fzf.fish` to interactively find and insert file paths, git commit hashes, a
 - **Fzf input:** Fish's command history
 - **Output:** selected commands
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>R</kbd> (`R` for reverse-i-search)
-- **Preview window:** the entire command with Fish syntax highlighting
 
 ## Installation
 
@@ -101,29 +98,10 @@ Each command's fzf options can be configured via a variable:
 The value of each variable is appended last to fzf's options list. Because fzf uses the last instance of an option if it is specified multiple times, custom options take precedence. Custom fzf options unlock a variety of augmentations:
 
 - add [fzf key bindings](https://www.mankier.com/1/fzf#Key/Event_Bindings) to [open files in Vim](https://github.com/PatrickF1/fzf.fish/pull/273)
-- adjust the preview command or window
 - [re-populate fzf's input list on demand](https://github.com/junegunn/fzf/issues/1750)
 - change the [search mode](https://github.com/junegunn/fzf#search-syntax)
 
 Find more ideas and tips in the [Cookbook](https://github.com/PatrickF1/fzf.fish/wiki/Cookbook).
-
-### Change how Search Directory previews directories and regular files
-
-[Search Directory][], by default, executes `ls` to preview directories and `bat` to preview [regular files](https://stackoverflow.com/questions/6858452).
-
-To use your own directory preview command, set it in `fzf_preview_dir_cmd`:
-
-```fish
-set fzf_preview_dir_cmd eza --all --color=always
-```
-
-And to use your own file preview command, set it in `fzf_preview_file_cmd`:
-
-```fish
-set fzf_preview_file_cmd cat -n
-```
-
-Omit the target path for both variables as `fzf.fish` will itself [specify the argument to preview](functions/_fzf_preview_file.fish).
 
 ### Change what files are listed by Search Directory
 
@@ -144,17 +122,6 @@ set fzf_git_log_format "%H %s"
 ```
 
 The format must be one line per commit and the hash must be the first field, or else Search Git Log will fail to determine which commits you selected.
-
-### Integrate with a diff highlighter
-
-To pipe the git diff previews from [Search Git Log][] through a highlighter tool (e.g. [delta](https://github.com/dandavison/delta) or [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)), set a command invoking the highlighter in `fzf_diff_highlighter`. It should not pipe its output to a pager:
-
-```fish
-# width=20 so delta decorations don't wrap around small fzf preview pane
-set fzf_diff_highlighter delta --paging=never --width=20
-# Or, if using DFS
-set fzf_diff_highlighter diff-so-fancy
-```
 
 ### Change Search History's date time format
 
