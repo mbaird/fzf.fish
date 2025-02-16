@@ -47,15 +47,6 @@ Use `fzf.fish` to interactively find and insert file paths, git commit hashes, a
 - **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>R</kbd> (`R` for reverse-i-search)
 - **Preview window:** the entire command with Fish syntax highlighting
 
-### 🖥️ Search Processes
-
-![Search Processes example](../assets/processes.png)
-
-- **Fzf input:** the pid and command of all running processes, outputted by `ps`
-- **Output:** pids of selected processes
-- **Key binding and mnemonic:** <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>P</kbd> (`P` for process)
-- **Preview window:** the CPU usage, memory usage, start time, and other information about the process
-
 ### 💲 Search Variables
 
 ![Search Variables example](../assets/variables.png)
@@ -116,7 +107,6 @@ Each command's fzf options can be configured via a variable:
 | Search Directory | `fzf_directory_opts` |
 | Search Git Log   | `fzf_git_log_opts`   |
 | Search History   | `fzf_history_opts`   |
-| Search Processes | `fzf_processes_opts` |
 | Search Variables | `fzf_variables_opts` |
 
 The value of each variable is appended last to fzf's options list. Because fzf uses the last instance of an option if it is specified multiple times, custom options take precedence. Custom fzf options unlock a variety of augmentations:

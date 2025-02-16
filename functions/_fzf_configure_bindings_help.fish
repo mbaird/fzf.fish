@@ -14,7 +14,6 @@ DESCRIPTION
         Search Directory   |  Ctrl+Alt+F (F for file)      |  --directory
         Search Git Log     |  Ctrl+Alt+L (L for log)       |  --git_log
         Search History     |  Ctrl+R     (R for reverse)   |  --history
-        Search Processes   |  Ctrl+Alt+P (P for process)   |  --processes
         Search Variables   |  Ctrl+V     (V for variable)  |  --variables
     Override a command's binding by specifying its corresponding option with the desired key
     sequence. Disable a command's binding by specifying its corresponding option with no value.
@@ -34,7 +33,7 @@ EXAMPLES
     Default bindings but disable Search History
         \$ fzf_configure_bindings --history=
     An agglomeration of different options
-        \$ fzf_configure_bindings --history=\ch --variables= --processes=
+        \$ fzf_configure_bindings --history=\ch --variables=
 
 SEE Also
     To learn more about fish key bindings, see bind(1) and fish_key_reader(1).
