@@ -12,7 +12,7 @@ function _fzf_search_history --description "Search command history. Replace the 
             --print0 \
             --multi \
             --scheme=history \
-            --prompt="History> " \
+            --prompt="> " \
             --query=(commandline) \
             $fzf_history_opts |
         string split0

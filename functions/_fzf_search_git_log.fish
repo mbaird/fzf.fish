@@ -12,7 +12,7 @@ function _fzf_search_git_log --description "Search the output of git log. Replac
             _fzf_wrapper --ansi \
                 --multi \
                 --scheme=history \
-                --prompt="Git Log> " \
+                --prompt="> " \
                 --query=(commandline --current-token) \
                 $fzf_git_log_opts
         )
