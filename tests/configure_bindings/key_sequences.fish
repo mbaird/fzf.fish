@@ -2,8 +2,8 @@ function binding_contains_func --argument-names sequence function_
     string match --entire $function_ (bind $sequence) >/dev/null
 end
 
-@test "default binding for directory works" (binding_contains_func \e\cf _fzf_search_directory) $status -eq 0
-@test "default binding for git log works" (binding_contains_func \e\cl _fzf_search_git_log) $status -eq 0
+@test "default binding for directory works" (binding_contains_func \ct _fzf_search_directory) $status -eq 0
+@test "default binding for git log works" (binding_contains_func \cl _fzf_search_git_log) $status -eq 0
 @test "default binding for history works" (binding_contains_func \cr _fzf_search_history) $status -eq 0
 
 fzf_configure_bindings --directory=\ca --git_log=\cb --history=\cc
@@ -20,7 +20,7 @@ _fzf_uninstall_bindings
 # intentionally test both style of passing options with no value
 fzf_configure_bindings --directory
 @test "can erase bindings by passing no key sequence" -z (bind --user | string match --entire --regex '_fzf_search_directory')
-binding_contains_func \e\cl _fzf_search_git_log && binding_contains_func \cr _fzf_search_history
+binding_contains_func \cl _fzf_search_git_log && binding_contains_func \cr _fzf_search_history
 @test "installs default bindings that aren't customized" $status -eq 0
 
 fzf_configure_bindings --unknown=\cq &>/dev/null
