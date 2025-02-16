@@ -68,16 +68,6 @@ set fzf_git_log_format "%H %s"
 
 The format must be one line per commit and the hash must be the first field, or else Search Git Log will fail to determine which commits you selected.
 
-### Change Search History's date time format
-
-[Search History][] shows the date time each command was executed. To change how its formatted, set your [strftime format string](https://devhints.io/strftime) in `fzf_history_time_format`. For example, this shows the date time as DD-MM-YY:
-
-```fish
-set fzf_history_time_format %d-%m-%y
-```
-
-Do not to include the vertical box-drawing character `│` (not to be confused with the pipe character `|`) as it is relied on to delineate the date time from the command.
-
 [cd docs]: https://fishshell.com/docs/current/cmds/cd.html
 [fd]: https://github.com/sharkdp/fd
 [fish]: https://fishshell.com
