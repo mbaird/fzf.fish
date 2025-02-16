@@ -4,7 +4,7 @@ function _fzf_search_git_log --description "Search the output of git log. Replac
     else
         if not set --query fzf_git_log_format
             # %h gives you the abbreviated commit hash, which is useful for saving screen space, but we will have to expand it later below
-            set -f fzf_git_log_format '%C(bold blue)%h%C(reset) - %C(cyan)%ad%C(reset) %C(yellow)%d%C(reset) %C(normal)%s%C(reset)  %C(dim normal)[%an]%C(reset)'
+            set -f fzf_git_log_format '%C(magenta)%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(blue)<%an>%Creset'
         end
 
         set -f selected_log_lines (
