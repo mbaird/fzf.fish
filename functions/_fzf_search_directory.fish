@@ -3,7 +3,7 @@ function _fzf_search_directory --description "Search the current directory. Repl
     # Debian-based distros install fd as fdfind and the fd package is something else, so
     # check for fdfind first. Fall back to "fd" for a clear error message.
     set -f fd_cmd (command -v fdfind || command -v fd  || echo "fd")
-    set -f --append fd_cmd --color=always $fzf_fd_opts
+    set -f --append fd_cmd $fzf_fd_opts
 
     set -f fzf_arguments --multi --ansi $fzf_directory_opts
     set -f token (commandline --current-token)
